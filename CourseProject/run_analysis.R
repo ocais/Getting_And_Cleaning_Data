@@ -1,4 +1,6 @@
 
+
+
 # 1. Create Data Table from files - Train  & Test File Sets
 
 # Read list of all features e.g.tBodyAcc-mean()-X, etc.
@@ -59,9 +61,8 @@ colnames(xstats) <- gsub("^(f)","freq",colnames(xstats))
 
 
 # .5 Creates an independent tidy data set with the average of each variable for each activity and each subject
-#attach(xstats)
 aggdata <-aggregate(xstats, by=list("Activity(Group)"= Activity,"Subject(Group)"=Subject), FUN=mean, na.rm=TRUE)
-#detach(xstats)
+
 
 # Remove unused columns fater running aggregrate
 aggdata$Activity <- NULL
@@ -71,6 +72,7 @@ aggdata$Type <- NULL
 
 # Write tidy data set
 write.table(aggdata, file = "TidyDataSet.txt",row.names=FALSE, na="",col.names=TRUE, sep="\t")
+write.table(aggdata, file = "TidyDataSet.csv",row.names=FALSE, na="",col.names=TRUE, sep=",")
 
 
 

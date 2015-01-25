@@ -70,7 +70,7 @@ aggdata$Type <- NULL
 
 
 # Write tidy data set
-write.table(aggdata, file = "TidyDataSet.txt",row.names=FALSE, na="",col.names=TRUE, sep=",")
+write.table(aggdata, file = "TidyDataSet.txt",row.names=FALSE, na="",col.names=TRUE, sep="\t")
 
 
 
